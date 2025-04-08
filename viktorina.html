@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktīva viktorīna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container"></div>
+<body style="background-color:rgb(175, 230, 226);">
+<h1 style="text-align: center; font-size:400%;"> Viktorīna </h1>
+    <nav>
+        <ul>
+            <li><a href="index.html
+                ">Home</a></li>
+            <li><a href="#">Jaunumi</a></li>
+            <li><a href="parbaudesdarbs_estere_lidaka.html">Galerija</a></li>
+
+
+            
+
+
+
+            <li><a href="#">Spēles <ul>
+
+                <li><a href="spele.html">Spēle></a></li>
+                <li><a href="rockpaperscissors.html">Spēle 2></a></li>
+                <li><a href="viktorina.html">Viktorīna</a></li>
+            
+            </ul>
+            </a></li>
+
+
+        
+            <li><a href="#">Iepriekšējie gadi <ul>
+                <li><a href="#">2023.</a></li>
+                <li><a href="#">2022.</a></li>
+            <li><a href="#">2021.</a></li>
+            </ul>
+            </a></li>
+
+
+    <li><a href="#">Plāni</a></li>
+    <li><a href="registreties.html">REĢISTRĒTIES</a></li>
+    <li><a href="jaunskonts.html.html">JAUNS KONTS</a></li>
+    <li><a href="krasinas.html">Krāsas</a></li>
+    <li><a href="jolka.html"> Eglīte</a></li>
+    <li><a href="kalkulators.html">Kalkulators</a></li>
+    <li><a href="sazina.html">Saziņa!</a></li>
+    <li><a href="kalkulators.html">Kalkulators</a></li>
+        
+            
+    </nav>
+    
+    </div>
+
+        
+
+</div>
+    <h1>Javascript Viktorīna</h1>
+    <p>Cik dienu ir Janvārī?</p>
+    <input type="number" id="answer">
+    <button onclick="checkAnswer()">Pārbaudīt</button>
+    <p id="feedback"></p>
+
+    <script> function checkAnswer() {
+        var answer = document.getElementById("answer").
+        value;
+        var feedback = document.getElementById
+        ("feedback");
+        if (answer === "31") {
+            feedback.innerHTML = "Pareizi!";
+        } else {
+            feedback.innerHTML = "Nepareizi. Mēģini vēlreiz!.";
+        }
+        }       
+        </script>
+
+<p>Cik dienu ir garajā gadā?</p>
+<input type="number" id="answers">
+<button onclick="checkAnswers()">Pārbaudīt</button>
+<p id="feedbacks"></p>
+
+<script> function checkAnswers() {
+    var answer = document.getElementById("answers").
+    value;
+    var feedback = document.getElementById
+    ("feedbacks");
+    if (answer === "366") {
+        feedback.innerHTML = "Pareizi!";
+    } else {
+        feedback.innerHTML = "Nepareizi.";
+    }
+    }       
+    </script>
+
+<p>Cik gadalaiki ir Latvijā?</p>
+<input type="text" id="answera">
+<button onclick="checkAnswera()">Pārbaudīt</button>
+<p id="feedbacka"></p>
+<script> function checkAnswera() {
+    var answer = document.getElementById("answera").
+    value;
+    var feedback = document.getElementById
+    ("feedbacka");
+    if (answer === "4") {
+        feedback.innerHTML = "Pareizi!";
+    } else {
+        feedback.innerHTML = "Nepareizi.......";
+    }
+    }       
+    </script>
+
+<p>Kurš mēnesis pēc kārtas ir jūnijs?</p>
+<input type="number" id="answerz">
+<button onclick="checkAnswerz()">Pārbaudīt</button>
+<p id="feedbackz"></p>
+<script> function checkAnswerz() {
+    var answer = document.getElementById("answerz").
+    value;
+    var feedback = document.getElementById
+    ("feedbackz");
+    if (answer === "6") {
+        feedback.innerHTML = "Pareizi!";
+    } else {
+        feedback.innerHTML = "Nepareizi. Nu tev nesagāja.";
+    }
+    }       
+    </script>
+</body>
+</html>
