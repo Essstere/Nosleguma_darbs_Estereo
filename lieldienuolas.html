@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <title>Lieldienu olu meklēšana</title> <!--Virsraksts-->
+  <link rel="stylesheet" href="style.css">
+  <body>
+    <h1 style="text-align: center; font-size:400%;"> Lieldienu spēle🐰🥕</h1>
+    <div id="container"></div>
+<body style="background-color:rgb(141, 216, 235);">
+
+    
+
+    <nav>
+        <ul>
+            <li><a href="index.html
+                ">Home</a></li>
+            <li><a href="#">Jaunumi</a></li>
+            <li><a href="parbaudesdarbs_estere_lidaka.html">Galerija</a></li>
+
+
+            
+
+
+
+            <li><a href="#">Spēles <ul>
+
+                <li><a href="spele.html">Spēle></a></li>
+                <li><a href="rockpaperscissors.html">Spēle 2></a></li>
+                <li><a href="viktorina.html">Viktorīna</a></li>
+                <li><a href="lieldienuolas.html">Lieldienu spēle</a></li>
+            
+            </ul>
+            </a></li>
+
+
+
+        
+            <li><a href="#">Iepriekšējie gadi <ul>
+                <li><a href="#">2023.</a></li>
+                <li><a href="#">2022.</a></li>
+            <li><a href="#">2021.</a></li>
+            </ul>
+            </a></li>
+
+
+    <li><a href="#">Plāni</a></li>
+    <li><a href="registreties.html">REĢISTRĒTIES</a></li>
+    <li><a href="jaunskonts.html.html">JAUNS KONTS</a></li>
+    <li><a href="krasinas.html">Krāsas</a></li>
+    <li><a href="jolka.html"> Eglīte</a></li>
+    <li><a href="sazina.html">Saziņa!</a></li>
+    <li><a href="kalkulators.html">Kalkulators</a></li>
+        
+          </nav>
+  <style>
+    
+    body {
+      font-family: sans-serif; 
+      text-align: center;
+      background-color: #fcc5df;
+    }
+
+    #gameArea {
+      position: relative; 
+      width: 80%;
+      height: 400px;
+      margin: 20px auto;
+      border: 2px solid #8e6f3e;
+      background-color: #fff6a9;
+      overflow: hidden;
+    }
+
+    .egg {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background-color: #95baff;
+      border-radius: 50% 50% 45% 45%;
+      cursor: pointer;
+      box-shadow: 0 0 5px #00000050;
+    }
+
+    #startBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #fded8f;
+      border: none;
+      cursor: pointer;
+    }
+
+    #score {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lieldienu olu meklēšanas spēle 🥚</h1> <!--Lielais virsraksts-->
+  <button id="startBtn">Sākt spēli</button> <!--Poga, uz kuras uzklikšķinot var sākt spēli-->
+  <div id="score">Punkti: 0</div> <!--Parāda tavu punktu skaitu-->
+  <div id="gameArea"></div>
+
+  <script>
+    const gameArea = document.getElementById('gameArea');
+    const startBtn = document.getElementById('startBtn');
+    const scoreDisplay = document.getElementById('score'); //Norāda rezultātu
+
+    let score = 0; //Sākuma rezultāts
+    let gameRunning = false;
+    let gameDuration = 15000; // 15 sekundes, lai noķertu olas
+
+    function randomPosition() {
+      const x = Math.random() * (gameArea.clientWidth - 40);
+      const y = Math.random() * (gameArea.clientHeight - 60);
+      return { x, y };
+    }
+
+    function createEgg() {
+      const egg = document.createElement('div'); //Ģenerē olas, uz kurām jāklikšķina
+      egg.classList.add('egg'); //Izveido olu izskatu
+      const pos = randomPosition(); //Ģenerē olas dažādās, nejaušās vietās, bez noteiktas sakarības
+      egg.style.left = `${pos.x}px`; //Noliek olas pozīcijā pa kreisi
+      egg.style.top = `${pos.y}px`; //Noliek olas pozīcijā mājaslapas aušpusē
+
+      egg.onclick = () => {
+        if (gameRunning) {
+          score++; //Pieskaita iegūtos punktus pie tava rezultāta
+          scoreDisplay.textContent = `Punkti: ${score}`; //skaita punktus
+          egg.remove();
+        }
+      };
+
+      gameArea.appendChild(egg);
+
+      // Ola pazūd pēc 2 sekundēm, ja nenoklikšķina
+      setTimeout(() => egg.remove(), 2000);
+    }
+//Spēles sākumā parāda, ka rezultāts ir 0 punktu
+    function startGame() {
+      score = 0;
+      scoreDisplay.textContent = 'Punkti: 0';
+      gameRunning = true;
+      gameArea.innerHTML = '';
+      startBtn.disabled = true;
+
+      const eggInterval = setInterval(() => { //Olas pazūd, tad kad tās noklikšķina
+        if (!gameRunning) return;
+        createEgg();
+      }, 500); // Katras 0.5 sekundes jauna ola
+
+      setTimeout(() => {
+        clearInterval(eggInterval);
+        gameRunning = false;
+        alert(`Spēle beigusies! Tu atradi ${score} olas!`); //Spēles beigās mājaslapas augšpusē parāda tavus rezultātus
+        startBtn.disabled = false;
+      }, gameDuration);
+    }
+
+    startBtn.addEventListener('click', startGame); //Sākt jaunu spēli
+  </script>
+</body>
+</html>
